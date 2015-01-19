@@ -47,6 +47,10 @@ guide is meant to be able to change with it.
   default, Windows users have to be extra careful.)
 <sup>[[link](#crlf)]</sup>
 
+  * <a name="end-each-file-with-a-blank-newline"></a>
+    [End each file with a blank newline](http://stackoverflow.com/questions/729692/why-should-files-end-with-a-newline)
+    <sup>[[link](#end-each-file-with-a-blank-newline)]</sup>
+
   * If you're using Git you might want to add the following
     configuration setting to protect your project from Windows line
     endings creeping in:
