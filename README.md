@@ -367,7 +367,49 @@ problem. A known exception to this rule is in a Gems gemspec file.
   # also good - single-line ternary
   some_variable ? do_positive : do_negative
   ```
+  
+* <a name="unless-vs-if-not"></a>
+  Prefer unless over if ! for tests with single branches
+<sup>[[link](#unless-vs-if-not)]</sup>
 
+  ```Ruby
+  # bad easy to miss the !
+  if ! something
+     do_thing
+  end
+
+  # good - 
+  unless something
+     do_thing
+  end
+  ```
+  
+* <a name="avoid-if-not"></a>
+  Do not use if ! in tests with multiple branches
+<sup>[[link](#avoid-if-not)]</sup>
+
+  ```Ruby
+  # bad - inverse thinking, even worse if an elsif is added later
+  if ! something
+    do_negative_thing
+  else
+    do_positive_thing
+  end
+  
+  # bad - non-intuitive else and unless has nothing comparable to elsif if complexity grows
+  unless something
+    do_negative_thing
+  else
+    do_positive_thing
+  end
+  
+  # good - multi-line if
+  if something
+    do_positive_thing
+  else
+    do_negative_thing
+  end
+  ```  
 * <a name="no-nested-ternary"></a>
   Do not nest ternary operators.
 <sup>[[link](#no-nested-ternary)]</sup>
