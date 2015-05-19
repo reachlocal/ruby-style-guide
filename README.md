@@ -58,6 +58,14 @@ guide is meant to be able to change with it.
     ```bash
     $ git config --global core.autocrlf true
     ```
+  
+  * If you're using Sublime Text, add the following line to your
+    preferences file to automatically add a newline to the end of
+    files on save:
+   
+    ```ruby
+    "ensure_newline_at_eof_on_save": true
+    ```
 
 * <a name="spaces-around-operators"></a>
   Use spaces around operators, after commas, colons and semicolons, around
