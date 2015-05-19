@@ -606,6 +606,25 @@ problem. A known exception to this rule is in a Gems gemspec file.
     Use `_` or names prefixed with `_` for unused variables.
   <sup>[[link](#underscore-unused-vars)]</sup>
 
+## Exceptions
+  * <a name="using-raise-and-fail"></a>
+    Use `raise` when handling exceptions and `fail` when not.
+  <sup>[[link](#using-raise-and-fail)]</sup>
+
+  ```ruby
+  begin
+    return 42/0
+  rescue ZeroDivisionError
+    raise SomeError
+  end
+  
+  def validate_password_length(password)
+    if password.length < 8
+      fail PasswordTooShort
+    end
+  end
+  ```
+
 ## Comments
   * <a name="long-comments-punctuation"></a>
     Comments longer than a word are capitalized and use punctuation.
