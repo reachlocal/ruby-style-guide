@@ -569,7 +569,7 @@ problem. A known exception to this rule is in a Gems gemspec file.
   Use double quotes as a default for strings. Use single quotes when there is
   a specific need to not have interpolation or escaping capability. Use
   [percent notation](http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals#The_.25_Notation) when there is interpolation, single quotes, AND double
-  quotes.
+  quotes.<sup>[[link](#use-correct-string-type)]</sup>
 
   ```ruby
   # bad
