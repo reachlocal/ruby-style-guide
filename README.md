@@ -528,6 +528,34 @@ problem. A known exception to this rule is in a Gems gemspec file.
   end
   ```
 
+* <a name="explicitly-access-class-methods"></a>
+  Prefer explicitly accessing class methods with self.class.
+<sup>[[link](#explicitly-access-class-methods)]</sup>
+
+  ```Ruby
+  # bad
+  class Person
+    def some_method
+      Person.a_class_method
+    end
+
+    def self.a_class_method
+      do_something
+    end
+  end
+
+  # good
+  class Person
+    def some_method
+      self.class.a_class_method
+    end
+
+    def self.a_class_method
+      do_something
+    end
+  end
+  ```
+
 * <a name="explicitly-access-instance-vars"></a>
   Within models (or model-like classes) you should always access attributes
   via their instance variable instead of getter/setters.
