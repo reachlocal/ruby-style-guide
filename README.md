@@ -500,15 +500,27 @@ problem. A known exception to this rule is in a Gems gemspec file.
   Avoid OO regexps (they won't make the code better).
 <sup>[[link](#oo-regex)]</sup>
 
-* <a name="explicitly-access-instance-methods"></a>
-  Prefer explicitly accessing instance methods with self.
-<sup>[[link](#explicitly-access-instance-methods)]</sup>
+* <a name="dont-use-self-explicitly"></a>
+  Don't use self explicitly anywhere except class methods (def self.method) and assignments (self.attribute =)
+<sup>[[link](dont-use-self-explicitly)]</sup>
 
   ```Ruby
   # bad
   class Person
+    attr_accessor :instance_variable
+
+    def initializer(some_value)
+      @instance_variable = some_value
+    end
+
+    def self.class_method
+      do_something
+    end
+
     def some_method
-      an_instance_method
+      instance_variable = some_new_value
+      class_method
+      self.an_instance_method
     end
 
     def an_instance_method
@@ -518,8 +530,20 @@ problem. A known exception to this rule is in a Gems gemspec file.
 
   # good
   class Person
+    attr_accessor :instance_variable
+
+    def initializer(some_value)
+      @instance_variable = some_value
+    end
+
+    def self.class_method
+      do_something
+    end
+
     def some_method
-      self.an_instance_method
+      self.instance_variable = some_new_value
+      self.class_method
+      an_instance_method
     end
 
     def an_instance_method
