@@ -76,12 +76,12 @@ guide is meant to be able to change with it.
   # bad
   some_method(arg1,arg2,arg3) # No spaces after comma
 
-  some_method do {|a| puts a} # No spaces inside `{` and `}`
+  some_method {|a| puts a} # No spaces inside `{` and `}`
 
   # good
   some_method(arg1, arg2, arg3)
 
-  some_method do { |a| puts a }
+  some_method { |a| puts a }
   ```
 
 * <a name="no-spaces-inside-parenthesis"></a>
