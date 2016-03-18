@@ -58,11 +58,11 @@ guide is meant to be able to change with it.
     ```bash
     $ git config --global core.autocrlf true
     ```
-  
+
   * If you're using Sublime Text, add the following line to your
     preferences file to automatically add a newline to the end of
     files on save:
-   
+
     ```ruby
     "ensure_newline_at_eof_on_save": true
     ```
@@ -375,7 +375,7 @@ problem. A known exception to this rule is in a Gems gemspec file.
   # also good - single-line ternary
   some_variable ? do_positive : do_negative
   ```
-  
+
 * <a name="unless-vs-if-not"></a>
   Prefer unless over if ! for tests with single branches
 <sup>[[link](#unless-vs-if-not)]</sup>
@@ -386,12 +386,12 @@ problem. A known exception to this rule is in a Gems gemspec file.
      do_thing
   end
 
-  # good - 
+  # good -
   unless something
      do_thing
   end
   ```
-  
+
 * <a name="avoid-if-not"></a>
   Do not use if ! in tests with multiple branches
 <sup>[[link](#avoid-if-not)]</sup>
@@ -403,21 +403,21 @@ problem. A known exception to this rule is in a Gems gemspec file.
   else
     do_positive_thing
   end
-  
+
   # bad - non-intuitive else and unless has nothing comparable to elsif if complexity grows
   unless something
     do_negative_thing
   else
     do_positive_thing
   end
-  
+
   # good - multi-line if
   if something
     do_positive_thing
   else
     do_negative_thing
   end
-  ```  
+  ```
 * <a name="no-nested-ternary"></a>
   Do not nest ternary operators.
 <sup>[[link](#no-nested-ternary)]</sup>
@@ -484,9 +484,21 @@ problem. A known exception to this rule is in a Gems gemspec file.
   Use `{` and `}` for single line blocks.
 <sup>[[link](#curlies-for-single-line-blocks)]</sup>
 
-* <a name="call-return-in-methods"></a>
-  Explicitly call `return` in method definitions.
-<sup>[[link](#call-return-in-methods)]</sup>
+* <a name="no-explicit-return"></a>
+  Avoid `return` where not required for flow of control.
+<sup>[[link](#no-explicit-return)]</sup>
+
+  ```Ruby
+  # bad
+  def some_method(some_arr)
+    return some_arr.size
+  end
+
+  # good
+  def some_method(some_arr)
+    some_arr.size
+  end
+  ```
 
 * <a name="non-required-line-continuation"></a>
   Avoid line continuation where not required.
@@ -683,7 +695,7 @@ problem. A known exception to this rule is in a Gems gemspec file.
   rescue ZeroDivisionError
     raise SomeError
   end
-  
+
   def validate_password_length(password)
     if password.length < 8
       fail PasswordTooShort
